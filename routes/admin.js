@@ -7,13 +7,12 @@ const jwt = require("jsonwebtoken");
 const { message } = require("statuses");
 
 
-// Admin Routes
+
 router.post('/signup', async (req, res) => {
-    // Implement admin signup logic
+
     const username = req.body.username;
     const password = req.body.password;
 
-    // check if a user with this username already exists
     await Admin.create({
         username: username,
         password: password
@@ -25,7 +24,7 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/signin', async (req, res) => {
-    // Implement admin signup logic
+    
     const username = req.body.username;
     const password = req.body.password;
 
@@ -49,7 +48,7 @@ router.post('/signin', async (req, res) => {
 });
 
 router.post('/courses', adminMiddleware, async(req, res) => {
-    // Implement course creation logic
+
     const title = req.body.title;
     const description = req.body.title;
     const imageLink = req.body.imageLink;
@@ -68,7 +67,7 @@ router.post('/courses', adminMiddleware, async(req, res) => {
 });
 
 router.get('/courses', adminMiddleware, async(req, res) => {
-    // Implement fetching all courses logic
+    
     const response = await Course.find({})
     res.json({
         courses: response

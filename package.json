@@ -1,0 +1,26 @@
+{
+  "name": "course_jwt",
+  "version": "1.0.0",
+  "description": "### Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kesava049/Projects_.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kesava049/Projects_/issues"
+  },
+  "homepage": "https://github.com/kesava049/Projects_#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.24.1"
+  }
+}
