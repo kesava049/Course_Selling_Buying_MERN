@@ -49,10 +49,10 @@ router.get('/courses', async (req, res) => {
     })
 });
 
-router.post('/courses/:courseId', async (req, res) => {
+router.post('/courses/:courseId', userMiddleware, async (req, res) => {
     // Implement course purchase logic
     const courseId = req.params.courseId;
-    const username = req.headers.username;
+    const username = req.username;
 
     await User.updateOne({
         username : username
@@ -66,18 +66,17 @@ router.post('/courses/:courseId', async (req, res) => {
     })
 });
 
-router.get('/purchasedCourses', async(req, res) => {
+router.get('/purchasedCourses', userMiddleware, async(req, res) => {
     // Implement fetching purchased courses logic
-    const user = await User.findOne({
-        username: req.headers.username
-    })
+    const user = await User.findOne({ username: req.username });
+    
     const courses = await Course.find({
         _id: {
             '$in': user.purchasedCourses
         }
     });
     res.json({
-        courses: courses
+        courses
     })
 });
 
